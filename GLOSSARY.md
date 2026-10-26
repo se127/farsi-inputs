@@ -1,17 +1,25 @@
 # Farsi Inputs
 
-A React playground for RTL, Persian-first input components. The domain is Persian typography conventions (Farsi digits, RTL layout) and system-driven theming for form controls.
+A React playground for RTL, Persian-first input components. The domain is Persian typography conventions (Farsi digits, RTL layout) and preference-backed theming for form controls.
 
 ## Language
 
 ### Appearance & theming
 
 **Theme**:
-The resolved appearance of the whole page: `light` or `dark`. In this project it always follows the device.
+The resolved appearance of the whole page: `light` or `dark`. Resolved from the Theme preference; the System theme when no preference is stored.
 _Avoid_: dark mode, skin, palette
 
+**Theme preference**:
+The user's stored choice: `light` or `dark`; absence means follow the System theme. System is the default state — never a stored value.
+_Avoid_: saved theme, stored theme
+
+**Theme picker**:
+The control that exposes the Theme preference: روشن (light), تیره (dark), and سیستم (system). Choosing سیستم removes the preference rather than storing it.
+_Avoid_: theme toggle, theme switcher, dark-mode button
+
 **System theme**:
-The device-reported appearance, exposed to the page through `prefers-color-scheme`. The single authority for Theme; the page has no override of its own.
+The device-reported appearance, exposed through `prefers-color-scheme`. The authority whenever no Theme preference exists; it never overrides an explicit preference.
 _Avoid_: OS setting, default theme
 
 **`color-scheme`**:
