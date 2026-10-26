@@ -43,3 +43,41 @@ _Avoid_: Inter (which may also mean locally installed copies)
 **Font stack**:
 The ordered list of families a character resolves through zone by zone — Vazirmatn UI-FD-NL, Inter Variable, locally installed Inter, generic sans-serif.
 _Avoid_: font family (singular; implies one face covers all glyphs)
+
+### Date picking
+
+**Jalali date**:
+A date in the Solar Hijri calendar, held as a year, month, and day and shown with Persian digits as zero-padded `YYYY/MM/DD`.
+_Avoid_: Persian date, Shamsi date
+
+**Date picker**:
+The composed control for choosing a Jalali date: a Date field that opens a calendar popover.
+_Avoid_: date input, calendar widget
+
+**Date field**:
+The read-only display field of the Date picker. It shows the Selected date or the placeholder and never accepts typed text.
+_Avoid_: input, text field
+
+**Selected date**:
+The Jalali date committed in the Date picker. Empty until a day is picked; held in component state only.
+_Avoid_: picked date, value
+
+**Viewed month**:
+The Jalali month currently rendered in the Day grid. Opens at the Selected date's month, or Today's month when nothing is selected; year and month navigation change it without committing a date.
+_Avoid_: current month, active month
+
+**Today**:
+The device-local current Jalali date, highlighted in the Day grid. Never stored.
+_Avoid_: current date, now
+
+**Day grid**:
+The calendar grid of the Viewed month, read Saturday to Friday, with days outside the month blank.
+_Avoid_: calendar, month view
+
+**Year panel**:
+The sub-panel for choosing a Jalali year. Choosing one updates the Viewed month's year and returns to the Day grid.
+_Avoid_: year dropdown, year list
+
+**Month panel**:
+The sub-panel for choosing one of the twelve Jalali months. Choosing one updates the Viewed month and returns to the Day grid.
+_Avoid_: month dropdown, month list
