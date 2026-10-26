@@ -1,32 +1,101 @@
-# React + TypeScript + Vite
+<div dir="rtl" align="right">
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# ورودی های فارسی
 
-Currently, two official plugins are available:
+زمین بازی کامپوننت های ورودی فارسی و راست چین. این پروژه کنترل های فرم را از ابتدا برای فارسی، ارقام فارسی و چیدمان راست چین طراحی می کند.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+در حال حاضر این مجموعه شامل یک انتخاب گر تاریخ جلالی و یک انتخاب گر پوسته است.
 
-## React Compiler
+## امکانات
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+&rlm;• **انتخاب گر تاریخ جلالی**: تقویم ماهانه از شنبه تا جمعه، همراه با پنل های سال و ماه.
 
-## Expanding the Oxlint configuration
+&rlm;• **ارقام فارسی**: تاریخ انتخاب شده به صورت `YYYY/MM/DD` و با ارقام فارسی نمایش داده می شود.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+&rlm;• **فیلد فقط خواندنی**: تاریخ با تایپ کردن تغییر نمی کند و فقط با انتخاب یک روز ثبت می شود.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+&rlm;• **صفحه کلید کامل**: پیمایش روزها، ماه ها و سال ها، تله فوکوس، بستن با `Escape` و بازگشت فوکوس به فیلد.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+&rlm;• **پوسته روشن، تیره و سیستم**: انتخاب کاربر ذخیره می شود و حالت سیستم به صورت پیش فرض دنبال می شود.
+
+&rlm;• **فونت مناسب فارسی**: وزیرمتن برای فارسی و Inter برای لاتین، با تفکیک خودکار گلیف ها.
+
+&rlm;• **راست چین و فارسی اول**: همه اجزا برای چیدمان راست چین طراحی شده اند.
+
+## اجرا
+
+پروژه با Bun اجرا می شود:
+
+&rlm;• نصب وابستگی ها: `bun install`
+
+&rlm;• اجرای محیط توسعه: `bun run dev`
+
+&rlm;• ساخت نسخه تولید: `bun run build`
+
+&rlm;• پیش نمایش نسخه تولید: `bun run preview`
+
+&rlm;• لینت: `bun run lint`
+
+&rlm;• بررسی قالب بندی: `bun run format:check`
+
+## پشته فناوری
+
+&rlm;• **React 19** برای رابط کاربری
+
+&rlm;• **TypeScript** برای نوع های ایستا
+
+&rlm;• **Vite 8** برای محیط توسعه و ساخت
+
+&rlm;• **Tailwind CSS 4** برای استایل
+
+&rlm;• **jalaali-js 2.0.1** برای تبدیل دقیق تاریخ جلالی و میلادی
+
+&rlm;• **oxlint** برای لینت و **Prettier** برای قالب بندی
+
+## ساختار پروژه
+
+&rlm;• `src/App.tsx`: چیدمان صفحه، عنوان و توضیح پروژه
+
+&rlm;• `src/date-picker.tsx`: انتخاب گر تاریخ جلالی و رفتار صفحه کلید
+
+&rlm;• `src/jalali.ts`: تبدیل تاریخ، قالب بندی و محاسبات تقویم
+
+&rlm;• `src/theme-picker.tsx`: انتخاب گر پوسته
+
+&rlm;• `src/components/ui/`: اجزای مشترک رابط کاربری
+
+&rlm;• `src/font/vazirmatn/`: نسخه همراه فونت وزیرمتن
+
+&rlm;• `docs/adr/`: ثبت تصمیم های معماری
+
+&rlm;• `GLOSSARY.md`: واژه نامه پروژه
+
+## رفتار انتخاب گر تاریخ
+
+&rlm;• تاریخ انتخاب شده فقط در حافظه کامپوننت نگه داشته می شود و ذخیره نمی شود.
+
+&rlm;• بازه سال ها از صد سال قبل تا صد سال بعد از سال جاری است و هر صفحه دوازده سال را نشان می دهد.
+
+&rlm;• انتخاب سال یا ماه فقط ماه نمایش داده شده را تغییر می دهد؛ تاریخ انتخاب شده تا انتخاب یک روز تغییر نمی کند.
+
+&rlm;• امروز و تاریخ انتخاب شده در تقویم با استایل متفاوت نمایش داده می شوند.
+
+&rlm;• انتخاب گر روی صفحه کلید کامل کار می کند: `Tab` بین اجزا حرکت می کند، کلیدهای جهت دار روز، ماه و سال را جابه جا می کنند و `Escape` پنجره را می بندد.
+
+## تصمیم ها و مستندها
+
+&rlm;• `docs/adr/0001-jalali-conversion.md`: استفاده از `jalaali-js` برای تبدیل دقیق تاریخ.
+
+&rlm;• `docs/adr/0002-commit-on-day-selection.md`: ثبت تاریخ فقط با انتخاب روز.
+
+&rlm;• `GLOSSARY.md`: واژه نامه و تعریف مفاهیم پروژه.
+
+## قواعد کد
+
+&rlm;• متن های فارسی با فاصله واقعی نوشته می شوند و از نویسه نیم فاصله استفاده نمی شود.
+
+&rlm;• کد بدون کامنت نوشته می شود؛ توضیح های لازم در `AGENTS.md`، `GLOSSARY.md` و `docs/adr/` نگهداری می شوند.
+
+&rlm;• قالب بندی و لینت پیش از هر تغییر با `bun run lint` و `bun run format:check` بررسی می شود.
+
+</div>
