@@ -455,7 +455,7 @@ export default function DatePicker({ className }: DatePickerProps) {
         <Button
           variant="ghost"
           size="icon"
-          aria-label="سال‌های قبل"
+          aria-label="سال های قبل"
           aria-disabled={yearPage === 0}
           onClick={() => goToYearPage(-1)}
           onKeyDown={onYearPageKeyDown}
@@ -508,7 +508,7 @@ export default function DatePicker({ className }: DatePickerProps) {
         <Button
           variant="ghost"
           size="icon"
-          aria-label="سال‌های بعد"
+          aria-label="سال های بعد"
           aria-disabled={yearPage === yearPageCount - 1}
           onClick={() => goToYearPage(1)}
           onKeyDown={onYearPageKeyDown}
@@ -583,7 +583,7 @@ export default function DatePicker({ className }: DatePickerProps) {
   const monthView = (
     <div
       role="group"
-      aria-label="ماه‌های سال"
+      aria-label="ماه های سال"
       className="grid grid-cols-3 gap-1"
       onKeyDown={onMonthGridKeyDown}
     >
@@ -621,7 +621,7 @@ export default function DatePicker({ className }: DatePickerProps) {
       </div>
       <div
         role="group"
-        aria-label="سال‌ها"
+        aria-label="سال ها"
         className="grid grid-cols-4 gap-1"
         onKeyDown={onYearGridKeyDown}
       >

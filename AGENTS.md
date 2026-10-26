@@ -6,6 +6,10 @@ Persian RTL input components playground. Vite 8 + React 19 (React Compiler) + Ta
 
 Keep every authored file free of code comments — line comments and block comments alike. If code needs explaining: rename, restructure, or relocate the rationale here or into `GLOSSARY.md`. Enforcement is partial: oxlint blocks same-line comments (`no-inline-comments`); standalone block comments rely on this file — treat it as a hard rule.
 
+## Persian text
+
+Write Persian words with a real space between them; never use a zero-width non-joiner (U+200C). Write `راست چین`, not the half-space variant, in UI copy, code, glossary entries, and docs.
+
 ## Conventions
 
 The why behind choices that no config file confesses. Every item here was a decision; treat edits to them as decisions, not edits.
