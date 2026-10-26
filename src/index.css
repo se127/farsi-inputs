@@ -1,27 +1,7 @@
 @import 'tailwindcss';
-
-/*
-  Vazirmatn UI FD NL — font-face declarations ship with the font itself
-  (verbatim copy from ~/Desktop/font, now at src/font/vazirmatn/). The file
-  registers the family as `vazirmatn` (case-insensitive match) with all nine
-  static weights and font-display: swap — imported here, not rewritten.
-*/
 @import './font/vazirmatn/Vazirmatn-UI-FD-NL-font-face.css';
-
-/*
-  Inter Variable — one import registers the family with the full 100–900
-  weight axis (variable font; the same file the old JS import in main.tsx
-  pulled in, since the package's "." entry point is index.css).
-  Kept here so all font wiring lives in css and main.tsx only boots React.
-*/
 @import '@fontsource-variable/inter';
 
-/*
-  Default font stack: Vazirmatn first — it covers Persian script and Farsi
-  digits but has no Latin glyphs (UI-FD-NL variant) — then Inter Variable
-  (bundled variable face via Fontsource) with locally installed Inter as an
-  extra match, then the generic sans-serif fallback.
-*/
 @theme {
   --font-sans: 'Vazirmatn', 'Inter Variable', 'Inter', sans-serif;
 }
@@ -29,19 +9,10 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    /*
-      Native form controls, scrollbars, and autofill chrome follow the same
-      system preference the page does — an inputs app must not show light
-      controls on a dark page or vice versa.
-    */
     color-scheme: light dark;
     background-color: var(--color-white);
   }
 
-  /*
-    System theme only — no manual toggle, no stored state. The built-in
-    dark: variant keys off this same media query by default.
-  */
   @media (prefers-color-scheme: dark) {
     html {
       background-color: var(--color-zinc-900);
